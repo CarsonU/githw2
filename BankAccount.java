@@ -8,11 +8,14 @@ lic class BankAccount {
  public void deposit(double amount) {
  // TODO: add the amount to the balance
  }
+ private static final double TRANSACTION_FEE = 2.0;
  public boolean withdraw(double amount) {
- // TODO:
- // Withdraw the requested amount if sufficient funds are available.
- // Return true if the withdrawal succeeds.
- // Return false otherwise. return false;
+ // Every successful withdrawal also charges a $2 transaction fee.
+ double total = amount + TRANSACTION_FEE;
+ if (amount > 0 && balance >= total) {
+ balance -= total;
+ return true;
+ }
  return false;
  }
  public String getAccountSummary() {

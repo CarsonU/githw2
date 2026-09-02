@@ -9,10 +9,11 @@ lic class BankAccount {
  // TODO: add the amount to the balance
  }
  public boolean withdraw(double amount) {
- // TODO:
- // Withdraw the requested amount if sufficient funds are available.
- // Return true if the withdrawal succeeds.
- // Return false otherwise. return false;
+ // Withdraw only if at least $50 will remain after the withdrawal.
+ if (balance - amount >= 50) {
+ balance -= amount;
+ return true;
+ }
  return false;
  }
  public String getAccountSummary() {
